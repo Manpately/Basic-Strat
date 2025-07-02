@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShareIt Platform</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>ShareIt Platform</h1>
+    
+    <div class="card">
+      <form id="uploadForm">
+        <div class="tabs">
+          <button type="button" class="tab-btn active" data-type="text">Text</button>
+          <button type="button" class="tab-btn" data-type="file">File</button>
+          <button type="button" class="tab-btn" data-type="link">Link</button>
+          <button type="button" class="tab-btn" data-type="gif">GIF</button>
+          <button type="button" class="tab-btn" data-type="image">Image</button>
+          <button type="button" class="tab-btn" data-type="voice">Voice</button>
+          <button type="button" class="tab-btn" data-type="folder">Folder</button>
+        </div>
+
+        <div class="tab-content" id="tabContent">
+          <textarea name="content" placeholder="Type your message here" required></textarea>
+        </div>
+
+        <input type="hidden" name="type" value="text" id="postType"/>
+        <input type="number" name="expiry" placeholder="Expire after (minutes)" min="1"/>
+        <button type="submit">Post</button>
+      </form>
+    </div>
+
+    <div id="postsContainer" class="space-y"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

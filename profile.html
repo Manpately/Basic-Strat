@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Share It</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: #fff;
+      padding-bottom: 80px;
+    }
+
+    .profile-header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .profile-header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #00f7ff;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .profile-header h2 {
+      margin: 0;
+    }
+
+    .bio {
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      padding: 0 1rem 2rem;
+    }
+
+    .posts {
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .post {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 16px rgba(0, 247, 255, 0.2);
+    }
+
+    .post h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+
+    .post p {
+      margin: 0.5rem 0;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    /* Updated Navbar */
+    .simple-navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #1a1a1a;
+      border-top: 1px solid #333;
+      z-index: 1000;
+      animation: slideUp 0.4s ease-out;
+    }
+
+    .simple-navbar ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      padding: 0.5rem 0;
+      list-style: none;
+    }
+
+    .simple-navbar li a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: color 0.3s ease;
+    }
+
+    .simple-navbar li a i {
+      font-size: 1.3rem;
+      margin-bottom: 3px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .simple-navbar li a:hover {
+      color: #00f7ff;
+    }
+
+    .simple-navbar li a:hover i {
+      transform: translateY(-4px);
+      color: #00f7ff;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Profile Info -->
+  <div class="profile-header">
+    <img src="profile.png" alt="User Photo">
+    <h2>@naivedh</h2>
+    <div class="bio">Love to share thoughts and code. Frontend Developer 💻</div>
+  </div>
+
+  <!-- User Posts -->
+  <div class="posts">
+    <div class="post">
+      <h3>@naivedh</h3>
+      <p>Just finished the new design for our Share It platform — dark theme looking fire! 🔥</p>
+    </div>
+    <div class="post">
+      <h3>@naivedh</h3>
+      <p>Working on chat.html page now. Smooth animations incoming!</p>
+    </div>
+  </div>
+
+  <!-- Bottom Navbar -->
+  <nav class="simple-navbar">
+    <ul>
+      <li><a href="home.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="share.html"><i class="fas fa-upload"></i><span>Share</span></a></li>
+      <li><a href="chat.html"><i class="fas fa-comments"></i><span>Chat</span></a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>

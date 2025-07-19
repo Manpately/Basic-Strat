@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Share It</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>👤 Login</h1>
+    <form id="login-form">
+      <input id="login-username" type="text" placeholder="username" required><br>
+      <input id="login-password" type="password" placeholder="password" required><br>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="link">
+      don’t have account? <a href="signup.html">create new account</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("login-username").value.trim();
+      const password = document.getElementById("login-password").value;
+      if (username === "manpro" && password === "topaloko") {
+        window.location.href = "home.html";
+      } else {
+        alert("Invalid username or password");
+      }
+    });
+  </script>
+</body>
+</html>

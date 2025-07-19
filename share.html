@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - ConnectSphere</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      padding-bottom: 100px;
+    }
+
+    .profile-container {
+      max-width: 650px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background-color: #1f1f1f;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .profile-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #00f7ff;
+    }
+
+    .share-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .option-card {
+      background: #2a2a2a;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .option-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 10px #00f7ff55;
+    }
+
+    .option-card i {
+      font-size: 1.8rem;
+      color: #00f7ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-card span {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .hidden-input {
+      display: none;
+    }
+
+    /* Navbar */
+    .manpro-navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(30, 30, 30, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #444;
+      z-index: 1000;
+      animation: slideUp 0.4s ease;
+    }
+
+    .manpro-navbar ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.7rem 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .manpro-navbar li a {
+      color: #ccc;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .manpro-navbar i {
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .manpro-navbar li a:hover i {
+      color: #00f7ff;
+      transform: translateY(-4px) scale(1.2);
+    }
+
+    .manpro-navbar li a:hover span {
+      color: #00f7ff;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h2>Share Something</h2>
+    <div class="share-options">
+      <div class="option-card" onclick="triggerUpload('doc')">
+        <i class="fas fa-file-alt"></i>
+        <span>Document</span>
+      </div>
+      <div class="option-card" onclick="triggerUpload('img')">
+        <i class="fas fa-image"></i>
+        <span>Image</span>
+      </div>
+      <div class="option-card" onclick="triggerUpload('vid')">
+        <i class="fas fa-video"></i>
+        <span>Video</span>
+      </div>
+      <div class="option-card" onclick="triggerUpload('folder')">
+        <i class="fas fa-folder-open"></i>
+        <span>Folder</span>
+      </div>
+      <div class="option-card" onclick="triggerUpload('other')">
+        <i class="fas fa-link"></i>
+        <span>Other</span>
+      </div>
+    </div>
+
+    <!-- Hidden Inputs -->
+    <input type="file" id="upload-doc" class="hidden-input" accept=".pdf,.doc,.docx,.txt"/>
+    <input type="file" id="upload-img" class="hidden-input" accept="image/*"/>
+    <input type="file" id="upload-vid" class="hidden-input" accept="video/*"/>
+    <input type="file" id="upload-folder" class="hidden-input" webkitdirectory directory multiple/>
+    <input type="file" id="upload-other" class="hidden-input" />
+  </div>
+
+  <!-- Navbar -->
+  <nav class="manpro-navbar">
+    <ul>
+      <li><a href="home.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="share.html"><i class="fas fa-upload"></i><span>Share</span></a></li>
+      <li><a href="chat.html"><i class="fas fa-comments"></i><span>Chat</span></a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+    </ul>
+  </nav>
+
+  <script>
+    function triggerUpload(type) {
+      switch (type) {
+        case 'doc':
+          document.getElementById('upload-doc').click();
+          break;
+        case 'img':
+          document.getElementById('upload-img').click();
+          break;
+        case 'vid':
+          document.getElementById('upload-vid').click();
+          break;
+        case 'folder':
+          document.getElementById('upload-folder').click();
+          break;
+        case 'other':
+          document.getElementById('upload-other').click();
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - ConnectSphere</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .settings-container {
+      max-width: 600px;
+      margin: 80px auto 100px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .setting-item:last-child {
+      border-bottom: none;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 46px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 46px;
+      height: 24px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+      z-index: 1;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .slider {
+      background-color: #4caf50;
+    }
+
+    .toggle-switch input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+
+    .light-mode {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .settings-header {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .manpro-navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(30, 30, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid #333;
+      z-index: 1000;
+    }
+
+    .manpro-navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      margin: 0;
+    }
+
+    .manpro-navbar li {
+      text-align: center;
+    }
+
+    .manpro-navbar a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .manpro-navbar a i {
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-container">
+    <div class="settings-header">Settings</div>
+
+    <div class="setting-item">
+      <label for="darkModeToggle">Dark Mode</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="slider"></span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <label for="profilePrivacy">Private Profile</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="profilePrivacy" />
+        <span class="slider"></span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <label for="messageRequests">Allow Message Requests</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="messageRequests" />
+        <span class="slider"></span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <label for="notifications">Enable Notifications</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="notifications" />
+        <span class="slider"></span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <label for="emailUpdates">Email Updates</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="emailUpdates" />
+        <span class="slider"></span>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <label for="searchVisibility">Show in Search</label>
+      <div class="toggle-switch">
+        <input type="checkbox" id="searchVisibility" />
+        <span class="slider"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navbar -->
+  <nav class="manpro-navbar">
+    <ul>
+      <li><a href="home.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="share.html"><i class="fas fa-upload"></i><span>Share</span></a></li>
+      <li><a href="chat.html"><i class="fas fa-comments"></i><span>Chat</span></a></li>
+      <li><a href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Load and apply saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      darkModeToggle.checked = true;
+    } else {
+      body.classList.add('light-mode');
+      darkModeToggle.checked = false;
+    }
+
+    // Listen for dark mode toggle
+    darkModeToggle.addEventListener('change', () => {
+      if (darkModeToggle.checked) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>

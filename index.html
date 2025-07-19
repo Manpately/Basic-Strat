@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome - Share It</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .welcome-container {
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .welcome-container h1 {
+      font-size: 4rem;
+      color: #ffecec;
+      animation: slideDown 1s ease-out;
+    }
+
+    .welcome-container p {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .description p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
+
+    .continue {
+      margin-top: 2rem;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .continue small {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .continue button {
+      background: #fff;
+      color: #111;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .continue button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      .welcome-container h1 {
+        font-size: 2.5rem;
+      }
+
+      .welcome-container p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-container">
+    <h1>WELCOME,</h1>
+    <p>To Share It</p>
+    <div class="description">
+      <p>Stay informed with the world</p>
+    </div>
+    <div class="continue">
+      <small>continue</small>
+      <a href="login.html"><button>Continue →</button></a>
+    </div>
+  </div>
+</body>
+</html>
